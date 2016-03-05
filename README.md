@@ -1,10 +1,4 @@
-Desert-Home
-===========
-Collection of the Desert-Home projects that run on the Raspberry Pi.
+AcuRite Weather stations Python script for Wunderground
+============
 
-The documentation for these are held on my blog at Desert-Home.com.
-
-There is a companion directory for the Arduino based portion
-of the projects here on GitHub, Desert-Home-Arduino
-
-For descriptions and documentation, visit desert-home.com
+For origin of source and documentation history for weatherstations.c , visit desert-home.com
