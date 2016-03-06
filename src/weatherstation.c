@@ -144,8 +144,8 @@ int getRainCount(char *data){
     return(count);
 }
 float getBaro(char *data){
-    float bar = 6.23 * (data[23] << 8 | data[24]) -20402;
-    return(bar);
+    float baro = 6.23 * (data[23] << 8 | data[24]) -20402;
+    return(baro);
 }
 // Now that I have the data from the station, do something useful with it.
 void decode(char *data, int length, int noisy){
