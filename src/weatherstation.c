@@ -141,7 +141,7 @@ int getRainCount(char *data){
 }
 char getRaw(char *data){
     char rawd = data &0x7f;
-    return(rawd)
+    return(rawd);
 }
 // Now that I have the data from the station, do something useful with it.
 void decode(char *data, int length, int noisy){
