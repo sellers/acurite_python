@@ -146,6 +146,7 @@ int getRainCount(char *data){
 float getBaro(char *data){
     //float baro = ((data[23]) / 2.7);
     //float baro = ((data[23] << 8) + data[24]);
+    fprintf(stdout,"Raw Data 23: %.3f ; Raw Data 24 %.3f\n\n",data[23], data[24])
     float baro = 6.23*(data[23] << 8 | data[24]) - 20402;
     return(baro);
 }
