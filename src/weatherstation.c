@@ -62,6 +62,8 @@ struct {
     time_t  hTime;
     int     rainCounter;
     time_t  rcTime;
+    int     barometer;
+    time_t  bTime;
 } weatherData;
 
 // This is just a function prototype for the compiler
@@ -103,11 +105,13 @@ void showit(){
                     "\"windDirection\":{\"WD\":\"%s\",\"t\":\"%d\"},"
                     "\"temperature\":{\"T\":\"%.1f\",\"t\":\"%d\"},"
                     "\"humidity\":{\"H\":\"%d\",\"t\":\"%d\"},"
+                    "\"barometer\":{\"B\":\"%d\",\"t\":\"%d\"},"
                     "\"rainCounter\":{\"RC\":\"%d\",\"t\":\"%d\"}}\n",
             weatherData.windSpeed, weatherData.wsTime,
             Direction[weatherData.windDirection],weatherData.wdTime,
             weatherData.temperature, weatherData.tTime,
             weatherData.humidity, weatherData.hTime,
+            weatherData.barometer, weatherData.bTime,
             weatherData.rainCounter, weatherData.rcTime);
     fflush(stdout);
 }
@@ -139,9 +143,9 @@ int getRainCount(char *data){
     int count = data[6] &0x7f;
     return(count);
 }
-char getRaw(char *data){
-    int rawd = data &0x7f;
-    return(rawd);
+char getBaro(char *data){
+    float bar = 6.23 * (data[23] << 8 | R2[24]) -20402;
+    return(bar);
 }
 // Now that I have the data from the station, do something useful with it.
 void decode(char *data, int length, int noisy){
@@ -186,7 +190,12 @@ void decode(char *data, int length, int noisy){
         weatherData.humidity = getHumidity(data);
         weatherData.hTime = seconds;
     }
-    fprintf(stderr, "RAW DATA: %s \n", getRaw);
+    if (length > 11){
+        if(noisy)
+            fprint(stderr, "R2 Barometer %d ",getBaro)
+        weatherData.barometer = bar / 100;
+        weatherData.barometer += 81.1;
+        weatherData.bTime = seconds;
 }
 /*
 This code is related to dealing with the USB device
