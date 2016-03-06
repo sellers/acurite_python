@@ -190,7 +190,7 @@ void decode(char *data, int length, int noisy){
         weatherData.humidity = getHumidity(data);
         weatherData.hTime = seconds;
     }
-    fprintf(stdout,"Length %d",length);
+    fprintf(stdout,"Length %d\n\n",length);
     if (length > 11){
         if(noisy)
             fprintf(stderr, "R2 Barometer %d ",getBaro(data));
@@ -287,6 +287,7 @@ int getit(int whichOne, int noisy){
             // The first byte is the report number returned by 
             // the usb read.
             decode(&data[1], actual-1, noisy);
+        decode(&data[2], actual-1, noisy);
     }
 }
 // I do several things here that aren't strictly necessary.  As I learned about
