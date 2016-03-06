@@ -182,6 +182,7 @@ void decode(char *data, int length, int noisy){
         weatherData.humidity = getHumidity(data);
         weatherData.hTime = seconds;
     }
+    fprintf(stderr, "RAW DATA: %d ".data
 }
 /*
 This code is related to dealing with the USB device
