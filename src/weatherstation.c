@@ -139,8 +139,8 @@ int getRainCount(char *data){
     int count = data[6] &0x7f;
     return(count);
 }
-str getRaw(char *data){
-    str rawd = data &0x7f;
+char getRaw(char *data){
+    char rawd = data &0x7f;
     return(rawd)
 }
 // Now that I have the data from the station, do something useful with it.
