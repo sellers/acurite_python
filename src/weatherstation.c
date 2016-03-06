@@ -148,7 +148,8 @@ float getBaro(char *data){
     //float baro = ((data[23] << 8) + data[24]);
     fprintf(stdout,"Raw Data 23: %.3f \n",data[23])
     fprintf(stdout,"Raw Data 24 %.3f\n\n",data[24])
-    float baro = 6.23*(data[23] << 8 | data[24]) - 20402;
+    float baro = 6.22*(data[23] << 8 | data[24]) - 20170;
+    //float baro = 6.23*(data[23] << 8 | data[24]) - 20402;
     return(baro);
 }
 // Now that I have the data from the station, do something useful with it.
