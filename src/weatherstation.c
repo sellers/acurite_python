@@ -144,7 +144,7 @@ int getRainCount(char *data){
     return(count);
 }
 float getBaro(char *data){
-    float baro = 6.23 * (data[23] << 8 | data[24]) -20402;
+    float baro = 6.23 * (data[23] << 8 | data[24]) - 20402;
     return(baro);
 }
 // Now that I have the data from the station, do something useful with it.
@@ -196,6 +196,7 @@ void decode(char *data, int length, int noisy){
         weatherData.barometer = getBarometer(data) / 100;
         weatherData.barometer += 81.1;
         weatherData.bTime = seconds;
+    }
 }
 /*
 This code is related to dealing with the USB device
