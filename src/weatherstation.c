@@ -62,7 +62,7 @@ struct {
     time_t  hTime;
     int     rainCounter;
     time_t  rcTime;
-    int     barometer;
+    float   barometer;
     time_t  bTime;
 } weatherData;
 
@@ -252,8 +252,7 @@ void closeUpAndLeave(){
 }
 
 // This is where I read the USB device to get the latest data.
-//unsigned char data[50]; // where we want the data to go
-char data[50]; // where we want the data to go
+unsigned char data[50]; // where we want the data to go
 int getit(int whichOne, int noisy){
     int actual; // how many bytes were actually read
     
@@ -478,3 +477,4 @@ int main(int argc, char **argv)
         }
     }
 }
+
