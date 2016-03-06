@@ -190,6 +190,7 @@ void decode(char *data, int length, int noisy){
         weatherData.humidity = getHumidity(data);
         weatherData.hTime = seconds;
     }
+    fprintf(stdout,"Length %d",length);
     if (length > 11){
         if(noisy)
             fprintf(stderr, "R2 Barometer %d ",getBaro(data));
