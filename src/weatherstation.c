@@ -105,7 +105,7 @@ void showit(){
                     "\"windDirection\":{\"WD\":\"%s\",\"t\":\"%d\"},"
                     "\"temperature\":{\"T\":\"%.1f\",\"t\":\"%d\"},"
                     "\"humidity\":{\"H\":\"%d\",\"t\":\"%d\"},"
-                    "\"barometer\":{\"B\":\"%d\",\"t\":\"%.1f\"},"
+                    "\"barometer\":{\"B\":\"%.1f\",\"t\":\"%d\"},"
                     "\"rainCounter\":{\"RC\":\"%d\",\"t\":\"%d\"}}\n",
             weatherData.windSpeed, weatherData.wsTime,
             Direction[weatherData.windDirection],weatherData.wdTime,
