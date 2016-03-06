@@ -192,7 +192,7 @@ void decode(char *data, int length, int noisy){
     }
     if (length > 11){
         if(noisy)
-            fprint(stderr, "R2 Barometer %d ",getBaro)
+            fprint(stderr, "R2 Barometer %d ",getBaro);
         weatherData.barometer = bar / 100;
         weatherData.barometer += 81.1;
         weatherData.bTime = seconds;
