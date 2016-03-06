@@ -144,7 +144,7 @@ int getRainCount(char *data){
     return(count);
 }
 float getBaro(char *data){
-    float baro = (data[24]);
+    float baro = (data[24])/2.7;
     //float baro = ((data[23] << 8) + data[24]);
     //float baro = 6.23*(data[23] << 8 | data[24]) - 20402;
     return(baro);
