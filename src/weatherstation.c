@@ -139,6 +139,10 @@ int getRainCount(char *data){
     int count = data[6] &0x7f;
     return(count);
 }
+str getRaw(char *data){
+    str rawd = data &0x7f;
+    return(rawd)
+}
 // Now that I have the data from the station, do something useful with it.
 void decode(char *data, int length, int noisy){
     //int i;
@@ -182,7 +186,7 @@ void decode(char *data, int length, int noisy){
         weatherData.humidity = getHumidity(data);
         weatherData.hTime = seconds;
     }
-    fprintf(stderr, "RAW DATA: %s \n", data &0x7f)
+    fprintf(stderr, "RAW DATA: %s \n", getRaw);
 }
 /*
 This code is related to dealing with the USB device
