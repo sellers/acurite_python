@@ -60,6 +60,8 @@ struct {
     time_t  tTime;
     int     humidity;
     time_t  hTime;
+    float   barometer;
+    time_t  bTime;
     int     rainCounter;
     time_t  rcTime;
     int     barometer;
