@@ -143,7 +143,7 @@ int getRainCount(char *data){
     int count = data[6] &0x7f;
     return(count);
 }
-char getBaro(char *data){
+float getBaro(char *data){
     float bar = 6.23 * (data[23] << 8 | R2[24]) -20402;
     return(bar);
 }
