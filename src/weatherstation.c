@@ -105,7 +105,7 @@ void showit(){
                     "\"windDirection\":{\"WD\":\"%s\",\"t\":\"%d\"},"
                     "\"temperature\":{\"T\":\"%.1f\",\"t\":\"%d\"},"
                     "\"humidity\":{\"H\":\"%d\",\"t\":\"%d\"},"
-                    "\"barometer\":{\"B\":\"%.1f\",\"t\":\"%d\"},"
+                    "\"barometer\":{\"B\":\"%.2f\",\"t\":\"%d\"},"
                     "\"rainCounter\":{\"RC\":\"%d\",\"t\":\"%d\"}}\n",
             weatherData.windSpeed, weatherData.wsTime,
             Direction[weatherData.windDirection],weatherData.wdTime,
@@ -144,8 +144,8 @@ int getRainCount(char *data){
     return(count);
 }
 float getBaro(char *data){
-    float baro = ((data[23]) / 2.7);
-    //float baro = ((data[23] << 8) + data[24]);
+    //float baro = ((data[23]) / 2.7);
+    float baro = ((data[23] << 8) + data[24]);
     //float baro = 6.23*(data[23] << 8 | data[24]) - 20402;
     return(baro);
 }
@@ -197,7 +197,7 @@ void decode(char *data, int length, int noisy){
         if(noisy)
             fprintf(stderr, "R2 Barometer %d ",getBaro(data));
         weatherData.barometer = getBaro(data) / 100;
-        weatherData.barometer += 81.1;
+        //weatherData.barometer += 81.1;
         weatherData.bTime = seconds;
     }
 }
