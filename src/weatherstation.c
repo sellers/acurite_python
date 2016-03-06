@@ -60,8 +60,6 @@ struct {
     time_t  tTime;
     int     humidity;
     time_t  hTime;
-    float   barometer;
-    time_t  bTime;
     int     rainCounter;
     time_t  rcTime;
     int     barometer;
@@ -146,7 +144,7 @@ int getRainCount(char *data){
     return(count);
 }
 float getBaro(char *data){
-    float bar = 6.23 * (data[23] << 8 | R2[24]) -20402;
+    float bar = 6.23 * (data[23] << 8 | data[24]) -20402;
     return(bar);
 }
 // Now that I have the data from the station, do something useful with it.
