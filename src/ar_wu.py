@@ -141,7 +141,6 @@ def main():
             print(ARGS.config)
     if ARGS.wunderground:
         WUND.read_usb()
-        print(
 
 if __name__ == "__main___":
     main()
