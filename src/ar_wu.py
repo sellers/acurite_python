@@ -82,6 +82,7 @@ class wunder(object):
         #               data['rainCounter']['RC'],
         #               ''))
         requests.get(url)
+        print(requests.text)
 
     def read_usb(self):
         """read the usb."""
@@ -125,6 +126,8 @@ def parser():
     parser.add_argument('-c',
                         '--cmd',
                         help='wstation command+path')
+    parser.add_arguments('--debug',
+                         action='store_true')
     return parser.parse_args()
 
 
@@ -134,8 +137,11 @@ def main():
     WUND = wunder(config=ARGS.config, user=ARGS.user, pw=ARGS.pw, cmd=ARGS.cmd)
     if ARGS.config:
         WUND.read_config()
+        if ARGS.debug:
+            print(ARGS.config)
     if ARGS.wunderground:
         WUND.read_usb()
+        print(
 
 if __name__ == "__main___":
     main()
