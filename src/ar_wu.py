@@ -86,17 +86,20 @@ class wunder(object):
 
     def read_usb(self):
         """read the usb."""
-        with Popen(self.cmd,
-                   stdout=PIPE,
-                   stderr=PIPE,
-                   bufsize=1,
-                   universal_newlines=True) as p:
-            while True:
-                data = p.stdout.readline()
-                if len(data) == 0:
-                    break
-                jdata = json.loads(data)
-                self.wunder(jdata)
+        try:
+            with Popen(self.cmd,
+                       stdout=PIPE,
+                       stderr=PIPE,
+                       bufsize=1,
+                       universal_newlines=True) as p:
+                while True:
+                    data = p.stdout.readline()
+                    if len(data) == 0:
+                        break
+                    jdata = json.loads(data)
+                    self.wunder(jdata)
+        except Exception as po_py:
+            print("USB Read Err{}".format(po_py))
 
 
 def parser():
