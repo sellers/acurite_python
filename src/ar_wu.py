@@ -126,7 +126,7 @@ def parser():
     parser.add_argument('-p',
                         '--passwd',
                         help='WU account password')
-    parser.add_argument('-c',
+    parser.add_argument('-r',
                         '--cmd',
                         help='wstation command+path')
     parser.add_arguments('--debug',
