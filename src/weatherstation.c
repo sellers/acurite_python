@@ -198,7 +198,7 @@ void decode(char *data, int length, int noisy){
     if(noisy)
         fprintf(stdout,"Length %d\n\n",length);
     if (length >= 11){
-        fprintf(stdout," - Length %d\n\n",length);
+        //fprintf(stdout," - Length %d\n\n",length);
         if(noisy)
             fprintf(stdout, "R2 Barometer %.3f ", getBaro(data));
         weatherData.barometer = getBaro(data) / 100;
