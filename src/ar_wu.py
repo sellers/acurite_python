@@ -147,7 +147,7 @@ def main():
         WUND.read_usb()
 
 
-if __name__ == '__main___':
+if __name__ == '__main__':
     print('main')
     main()
 print('goodbye {}.'.format(__name__))
