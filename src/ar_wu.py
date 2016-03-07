@@ -129,7 +129,7 @@ def parser():
     parser.add_argument('-r',
                         '--cmd',
                         help='wstation command+path')
-    parser.add_arguments('--debug',
+    parser.add_argument('--debug',
                          action='store_true')
     return parser.parse_args()
 
