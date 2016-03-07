@@ -111,7 +111,7 @@ def parser():
                         help='Debug output')
     parser.add_argument('-w',
                         '--wunderground',
-                        action='story_true',
+                        action='store_true',
                         help='share with wundergroun')
     parser.add_argument('-c',
                         '--config',
@@ -122,13 +122,16 @@ def parser():
     parser.add_argument('-p',
                         '--passwd',
                         help='WU account password')
+    parser.add_argument('-c',
+                        '--cmd',
+                        help='wstation command+path')
     return parser.parse_args()
 
 
 def main():
     """Invoked from CLI."""
     ARGS = parser()
-    WUND = wunder(config=ARGS.config, user=ARGS.user, pw=ARGS.pw)
+    WUND = wunder(config=ARGS.config, user=ARGS.user, pw=ARGS.pw, cmd=ARGS.cmd)
     if ARGS.config:
         WUND.read_config()
     if ARGS.wunderground:
