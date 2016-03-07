@@ -146,10 +146,9 @@ int getRainCount(char *data){
 float getBaro(char *data){
     //float baro = ((data[23]) / 2.7);
     //float baro = ((data[23] << 8) + data[24]);
-    float baro = 0.0
     fprintf(stdout,"Raw Data 23: %.3f \n",data[23])
     fprintf(stderr,"Raw Data 24 %.3f\n\n",data[24])
-    baro = 6.22*(data[23] << 8 | data[24]);
+    float baro = 6.22*(data[23] << 8 | data[24]);
     //float baro = 6.23*(data[23] << 8 | data[24]) - 20402;
     return(baro);
 }
@@ -200,7 +199,7 @@ void decode(char *data, int length, int noisy){
     if (length >= 11){
         fprintf(stdout," - Length %d\n\n",length);
         if(noisy)
-            fprintf(stdout, "R2 Barometer %.3f ",getBaro(data));
+            fprintf(stdout, "R2 Barometer %.3f ", getBaro(data));
         weatherData.barometer = getBaro(data) / 100;
         //weatherData.barometer += 81.1;
         weatherData.bTime = seconds;
