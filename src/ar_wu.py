@@ -150,4 +150,4 @@ def main():
 if __name__ == '__main___':
     print('main')
     main()
-print('goodbye')
+print('goodbye {}.'.format(__name__))
