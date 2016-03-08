@@ -122,9 +122,11 @@ def parser():
                         default='/usr/local/etc/w.conf')
     parser.add_argument('-u',
                         '--stationid',
+                        default=None,
                         help='WU Station ID')
     parser.add_argument('-p',
                         '--passwd',
+                        default=None,
                         help='WU account password')
     parser.add_argument('-r',
                         '--cmd',
