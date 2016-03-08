@@ -48,13 +48,13 @@ class wunder(object):
         url = ''
         if data['windDirection']['WD'] != "":
             url = ("{}&{}".format(url, data['windDirection']['WD']))
-        if int(data['windSpeed']['WS']) > 0:
+        if float(data['windSpeed']['WS']) > 0:
             url = ("{}&{}".format(url, data['windSpeed']['WS']))
         if float(data['temperature']['T']) > 0:
             url = ("{}&{}".format(url, data['temperature']['T']))
         if float(data['barometer']['B']) > 0:
             url = ("{}&{}".format(url, data['barometer']['B']))
-        if int(data['humidity']['H']) > 0:
+        if float(data['humidity']['H']) > 0:
             url = ("{}&{}".format(url, data['humidity']['H']))
         if float(data['rainCounter']['RC']) > 0:
             url = ("{}&{}".format(url, data['rainCounter']['RC']))
