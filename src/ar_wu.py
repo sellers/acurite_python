@@ -81,6 +81,7 @@ class wunder(object):
         #               data['temperature']['T'],
         #               data['rainCounter']['RC'],
         #               ''))
+        print(url)
         requests.get(url)
         print(requests)
 
