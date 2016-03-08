@@ -82,7 +82,7 @@ class wunder(object):
         #               data['rainCounter']['RC'],
         #               ''))
         requests.get(url)
-        print(requests.text)
+        print(requests)
 
     def read_usb(self):
         """read the usb."""
