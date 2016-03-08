@@ -6,6 +6,8 @@ This leverages the weatherstation.c code from
 It will run over and over reading data from the USB port set to #4 on the dev
 """
 
+import os
+import sys
 import json
 from time import sleep
 import argparse
@@ -136,6 +138,10 @@ def parser():
                         '--cmd',
                         default='/usr/local/bin/wstation',
                         help='wstation command+path')
+    parser.add_argument('-f',
+                        '--daemon',
+                        action='store_true',
+                        help='Fork as Daemon')
     return parser.parse_args()
 
 
@@ -143,6 +149,10 @@ def main():
     """Invoked from CLI."""
     print("Start me up!\n\n")
     ARGS = parser()
+    if ARGS.daemon:
+        fpid = os.fork()
+        if fpid != 0:
+            sys.exit(0)
     WUND = wunder(config=ARGS.config,
                   user=ARGS.stationid,
                   pw=ARGS.passwd,
