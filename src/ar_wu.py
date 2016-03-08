@@ -138,7 +138,10 @@ def main():
     """Invoked from CLI."""
     print("Start me up!\n\n")
     ARGS = parser()
-    WUND = wunder(config=ARGS.config, user=ARGS.user, pw=ARGS.pw, cmd=ARGS.cmd)
+    WUND = wunder(config=ARGS.config,
+                  user=ARGS.stationid,
+                  pw=ARGS.passwd,
+                  cmd=ARGS.cmd)
     if ARGS.config:
         WUND.read_config()
         if ARGS.debug:
