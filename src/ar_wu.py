@@ -48,15 +48,15 @@ class wunder(object):
         url = ''
         if data['windDirection']['WD'] != "":
             url = ("{}&{}".format(url, data['windDirection']['WD']))
-        if data['windSpeed']['WS'] > 0:
+        if int(data['windSpeed']['WS']) > 0:
             url = ("{}&{}".format(url, data['windSpeed']['WS']))
-        if data['temperature']['T'] > 0:
+        if float(data['temperature']['T']) > 0:
             url = ("{}&{}".format(url, data['temperature']['T']))
-        if data['barometer']['T'] > 0:
+        if float(data['barometer']['B']) > 0:
             url = ("{}&{}".format(url, data['barometer']['B']))
-        if data['humidity']['H'] > 0:
+        if int(data['humidity']['H']) > 0:
             url = ("{}&{}".format(url, data['humidity']['H']))
-        if data['rainCounter']['RC'] > 0:
+        if int(data['rainCounter']['RC']) > 0:
             url = ("{}&{}".format(url, data['rainCounter']['RC']))
 
         url = ('{}&ID={}&PASSWORD={}&dateutc={}'
@@ -100,7 +100,7 @@ class wunder(object):
                     jdata = json.loads(data)
                     self.wunder(jdata)
         except Exception as po_py:
-            print("USB Read Err{}".format(po_py))
+            print("USB Read Err {}".format(po_py))
 
 
 def parser():
