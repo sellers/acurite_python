@@ -7,6 +7,7 @@ It will run over and over reading data from the USB port set to #4 on the dev
 """
 
 import json
+from time import sleep
 import argparse
 import requests
 import configparser
@@ -46,6 +47,7 @@ class wunder(object):
         """send wundergrounad the data."""
         now = dt.now().strftime('%Y-%m-%d+%H:%M:%S')
         url = ''
+        sleep(120)
         if data['windDirection']['WD'] != "":
             url = ("{}&winddir={}".format(url, data['windDirection']['WD']))
         if float(data['windSpeed']['WS']) > 0:
