@@ -109,7 +109,7 @@ def parser():
     returns: an argparse object
     """
     parser = argparse.ArgumentParser()
-    parser.add_argument('--d',
+    parser.add_argument('-d',
                         '--debug',
                         action='store_true',
                         help='Debug output')
