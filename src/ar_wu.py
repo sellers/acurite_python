@@ -56,7 +56,7 @@ class wunder(object):
             url = ("{}&{}".format(url, data['barometer']['B']))
         if int(data['humidity']['H']) > 0:
             url = ("{}&{}".format(url, data['humidity']['H']))
-        if int(data['rainCounter']['RC']) > 0:
+        if float(data['rainCounter']['RC']) > 0:
             url = ("{}&{}".format(url, data['rainCounter']['RC']))
 
         url = ('{}&ID={}&PASSWORD={}&dateutc={}'
