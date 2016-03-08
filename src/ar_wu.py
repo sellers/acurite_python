@@ -47,17 +47,17 @@ class wunder(object):
         now = dt.now().strftime('%Y-%m-%d+%H:%M:%S')
         url = ''
         if data['windDirection']['WD'] != "":
-            url = ("{}&{}".format(url, data['windDirection']['WD']))
+            url = ("{}&winddir={}".format(url, data['windDirection']['WD']))
         if float(data['windSpeed']['WS']) > 0:
-            url = ("{}&{}".format(url, data['windSpeed']['WS']))
+            url = ("{}&windspeedmph{}".format(url, data['windSpeed']['WS']))
         if float(data['temperature']['T']) > 0:
-            url = ("{}&{}".format(url, data['temperature']['T']))
+            url = ("{}&tempf={}".format(url, data['temperature']['T']))
         if float(data['barometer']['B']) > 0:
-            url = ("{}&{}".format(url, data['barometer']['B']))
+            url = ("{}&baromin={}".format(url, data['barometer']['B']))
         if float(data['humidity']['H']) > 0:
-            url = ("{}&{}".format(url, data['humidity']['H']))
+            url = ("{}&humidity={}".format(url, data['humidity']['H']))
         if float(data['rainCounter']['RC']) > 0:
-            url = ("{}&{}".format(url, data['rainCounter']['RC']))
+            url = ("{}&rainin={}".format(url, data['rainCounter']['RC']))
 
         url = ('{}&ID={}&PASSWORD={}&dateutc={}'
                '{}&softwaretype=ar_wu.py&realtime=1&rtfreq=2&action=update_rw'
