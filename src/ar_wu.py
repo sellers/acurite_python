@@ -131,6 +131,7 @@ def parser():
                         help='WU account password')
     parser.add_argument('-r',
                         '--cmd',
+                        default='/usr/local/bin/wstation',
                         help='wstation command+path')
     return parser.parse_args()
 
