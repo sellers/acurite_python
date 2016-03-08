@@ -87,6 +87,7 @@ class wunder(object):
     def read_usb(self):
         """read the usb."""
         try:
+            print('Readn the usb: {}'.format(self.cmd))
             with Popen(self.cmd,
                        stdout=PIPE,
                        stderr=PIPE,
